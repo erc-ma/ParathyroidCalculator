@@ -17,14 +17,16 @@ public class Driver {
 
 		//ADD USER INPUT set myDirectoryPath
         String path = JOptionPane.showInputDialog("What is the pathname for your directory?");
+        String thicknessString = JOptionPane.showInputDialog("How thick are your cross-sections (micrometers)");
+        int thickness = Integer.parseInt(thicknessString);
 		File dir = new File(path);
 		File[] directoryListing = dir.listFiles();
 		if (directoryListing != null) {
 			for (File child : directoryListing) {
-				volume+=executeProgram(child);
+				volume+=executeProgram(child)*thickness;
 			}
 		} 
-        JOptionPane.showMessageDialog(null,"Your volume is "+volume);
+        JOptionPane.showMessageDialog(null,"Your volume is "+volume+" px by um");
 
 			goAgain = JOptionPane.showConfirmDialog(null, "Do you want to go again?");
 		} while (goAgain == JOptionPane.YES_OPTION);
