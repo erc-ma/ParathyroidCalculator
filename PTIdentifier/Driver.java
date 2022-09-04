@@ -17,7 +17,7 @@ public class Driver {
 
 		//ADD USER INPUT set myDirectoryPath
         String path = JOptionPane.showInputDialog("What is the pathname for your directory?");
-        String thicknessString = JOptionPane.showInputDialog("How thick are your cross-sections (micrometers)");
+        String thicknessString = JOptionPane.showInputDialog("How thick are your cross-sections (microns)");
         int thickness = Integer.parseInt(thicknessString);
 		File dir = new File(path);
 		File[] directoryListing = dir.listFiles();
@@ -26,7 +26,7 @@ public class Driver {
 				volume+=executeProgram(child)*thickness;
 			}
 		} 
-        JOptionPane.showMessageDialog(null,"Your volume is "+volume+" px by um");
+        JOptionPane.showMessageDialog(null,"Your volume is "+volume+" px by microns");
 
 			goAgain = JOptionPane.showConfirmDialog(null, "Do you want to go again?");
 		} while (goAgain == JOptionPane.YES_OPTION);
